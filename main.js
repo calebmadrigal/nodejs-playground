@@ -30,8 +30,20 @@ function hello(req, res) {
   }
 }
 
+function hi(req, res) {
+  if (req.params.name != null) {
+    var name = req.params.name;
+    res.json({'message': 'Hi ' + name});
+  }
+  else {
+    res.json({'message': 'Hi world'});
+  }
+}
+
 app.get('/hello/:name', hello);
 app.get('/hello/', hello);
+app.get('/hi/:name', hi);
+app.get('/hi/', hi);
 
 ////////////////////////////////////////////////////////////////////////////////////// SERVER LISTEN
 var port = process.env.PORT || 3000;
