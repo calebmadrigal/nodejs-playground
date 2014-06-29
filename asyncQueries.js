@@ -15,7 +15,6 @@ var getMessage = function (msgId) {
         defer.reject(err);
       }
       else {
-        //console.log("Got message: ", body);
         defer.resolve(body);
       }
     }
@@ -26,11 +25,13 @@ var getMessage = function (msgId) {
 var msgIds = ['0','1','2','3'];
 
 async.map(msgIds, function (msgId) {
-  return getMessage(msgId);
+  return getMessage(msgId).then(
+    function (msg) {
+      return JSON.parse(msg);
+    });
 }).then(
   function (messageList) {
-    var parsedList = _.map(messageList, function (msgString) { return JSON.parse(msgString); });
-    console.log(parsedList);
+    console.log(messageList);
   },
   function (err) {
     console.log("ERROR: ", err);
