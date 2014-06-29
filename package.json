@@ -7,8 +7,14 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "dependencies": {
-    "q": "~1.0.1",
+    "async-q": "^0.2.2",
     "express": "~4.1.1",
+    "json-query": "^0.4.0",
+    "lazy.js": "^0.3.2",
+    "lodash": "^2.4.1",
+    "q": "~1.0.1",
+    "request": "^2.36.0",
+    "safe-access": "^0.1.0",
     "underscore": "~1.6.0",
     "winston": "~0.7.3"
   },
